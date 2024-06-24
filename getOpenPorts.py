@@ -7,11 +7,12 @@ import sys
 ascii_banner = pyfiglet.figlet_format("PORT SCANNER")
 print(ascii_banner)
 
-target = input("Enter an ip: ")
+target_dns = input("Enter an ip address/domain name: ")
+target = "".join(socket.gethostbyname_ex(target_dns)[2])
 
 print("_" * 50)
 print(f"Scanning Target: {target}")
-print("Scanning started at: "+str(datetime.now()))
+print("Scanning started at: "+str(datetime.now().strftime("%d-%m-%Y %H:%M")))
 print("_" * 50)
 
 try:
